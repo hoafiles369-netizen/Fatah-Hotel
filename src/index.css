@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px; /* Base font size */
+}
+
+body {
+  @apply antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Mobile-first responsive utilities */
+.responsive-padding {
+  padding: 4rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .responsive-padding {
+    padding: 6rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-padding {
+    padding: 8rem 2rem;
+  }
+}
+
+.responsive-padding-small {
+  padding: 2rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .responsive-padding-small {
+    padding: 3rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-padding-small {
+    padding: 4rem 2rem;
+  }
+}
+
+/* Performance optimizations */
+.gpu-accelerate {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* ── Book Section Grid ── */
+.book-section-grid {
+  display: flex;
+  flex-direction: column; /* Mobile first: stack vertically */
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  width: 100%;
+  max-width: 1400px;
+  z-index: 10;
+}
+
+@media (min-width: 1024px) {
+  .book-section-grid {
+    flex-direction: row; /* Desktop: side-by-side */
+    flex-wrap: wrap;
+    gap: 4rem;
+  }
+}
+
